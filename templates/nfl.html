@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ team }}</title>
+    </head>
+    <body>
+        <h1>Scores for {{ team }}: {{ data_request }} {% if not project %} 2002-2023 {% endif %} {% if project %} (projected) {% endif %} </h1>
+            <img src="{{ url_for('fig', data_request=data_request, team=team, project=project) }}" alt="Scores for {{ team }}">
+        <form action="/submit_projection" method="POST">
+            <p>Find projected scores for a particular date range:
+                <input type="text" name="date" placeholder="ex. 2003-2022">
+                <input type="submit" value="Submit"></p>
+        </form>
+
+    </body>
+</html>
